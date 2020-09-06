@@ -2,8 +2,8 @@
  * name: @feizheng/next-dom2json
  * description: Dom to json for next.
  * homepage: https://github.com/afeiship/next-dom2json
- * version: 1.0.0
- * date: 2020-09-06T04:34:14.211Z
+ * version: 1.0.1
+ * date: 2020-09-06T15:50:38.041Z
  * license: MIT
  */
 
@@ -16,42 +16,37 @@
 
   nx.dom2json = function (inNode) {
     if (!inNode) return null;
-    if (!isNodeList(inNode)) {
-      var result = {};
-      var nodeName = inNode.nodeName;
-      var nodeValue = inNode.nodeValue;
-      var nodeType = inNode.nodeType;
-      var childNodes = inNode.childNodes;
-      var attributes = inNode.attributes;
-      var i = 0;
+    if (isNodeList(inNode)) return nx.slice(inNode).map(nx.dom2json);
 
-      result.nodeName = nodeName.toLowerCase();
-      result.nodeType = nodeType;
-      nodeValue && (result.nodeValue = nodeValue);
+    var result = {};
+    var nodeName = inNode.nodeName;
+    var nodeValue = inNode.nodeValue;
+    var nodeType = inNode.nodeType;
+    var childNodes = inNode.childNodes;
+    var attributes = inNode.attributes;
+    var i = 0;
 
-      if (attributes) {
-        var obj = (result.attributes = {});
-        for (i = 0; i < attributes.length; i++) {
-          var attr = attributes[i];
-          obj[attr.nodeName] = attr.nodeValue;
-        }
+    result.nodeName = nodeName.toLowerCase();
+    result.nodeType = nodeType;
+    nodeValue && (result.nodeValue = nodeValue);
+
+    if (attributes) {
+      var obj = (result.attributes = {});
+      for (i = 0; i < attributes.length; i++) {
+        var attr = attributes[i];
+        obj[attr.nodeName] = attr.nodeValue;
       }
-
-      if (childNodes) {
-        var length = childNodes.length;
-        var arr = (result.childNodes = new Array(length));
-        for (i = 0; i < length; i++) {
-          arr[i] = nx.dom2json(childNodes[i]);
-        }
-      }
-
-      return result;
-    } else {
-      var nodes = nx.slice(inNode);
-      return nodes.map(function (node) {
-        return nx.dom2json(node);
-      });
     }
+
+    if (childNodes) {
+      var length = childNodes.length;
+      var arr = (result.childNodes = new Array(length));
+      for (i = 0; i < length; i++) {
+        arr[i] = nx.dom2json(childNodes[i]);
+      }
+    }
+
+    return result;
   };
 
   if (typeof module !== 'undefined' && module.exports) {
