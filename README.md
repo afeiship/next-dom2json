@@ -20,6 +20,7 @@ import '@feizheng/next-dom2json';
 
 ## resources
 - https://www.w3school.com.cn/jsref/prop_node_nodetype.asp
+- https://github.com/sumn2u/dom-to-json/blob/master/lib/index.js
 
 
 
