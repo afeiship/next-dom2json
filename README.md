@@ -15,7 +15,76 @@ npm install -S @feizheng/next-dom2json
 ```js
 import '@feizheng/next-dom2json';
 
-//DOCS here!
+const domElement = `
+  <div class="list_item odd" data-value="v1" itemscope="" itemtype="http://schema.org/Movie">
+    123
+    <span>abc</span>
+    <strong>def</strong>
+  </div>
+`;
+const dom = new JSDOM(domElement);
+const el = dom.window.document.querySelector('.list_item');
+const json = nx.dom2json(el);
+
+// results:
+/*
+{
+  nodeName: 'div',
+  nodeType: 1,
+  attributes: {
+    class: 'list_item odd',
+    'data-value': 'v1',
+    itemscope: '',
+    itemtype: 'http://schema.org/Movie'
+  },
+  childNodes: [
+    {
+      nodeName: '#text',
+      nodeType: 3,
+      nodeValue: '\n        123\n        ',
+      childNodes: []
+    },
+    {
+      nodeName: 'span',
+      nodeType: 1,
+      attributes: {},
+      childNodes: [
+        {
+          nodeName: '#text',
+          nodeType: 3,
+          nodeValue: 'abc',
+          childNodes: []
+        }
+      ]
+    },
+    {
+      nodeName: '#text',
+      nodeType: 3,
+      nodeValue: '\n        ',
+      childNodes: []
+    },
+    {
+      nodeName: 'strong',
+      nodeType: 1,
+      attributes: {},
+      childNodes: [
+        {
+          nodeName: '#text',
+          nodeType: 3,
+          nodeValue: 'def',
+          childNodes: []
+        }
+      ]
+    },
+    {
+      nodeName: '#text',
+      nodeType: 3,
+      nodeValue: '\n      ',
+      childNodes: []
+    }
+  ]
+}
+*/
 ```
 
 ## resources
