@@ -1,15 +1,15 @@
 /*!
- * name: @feizheng/next-dom2json
+ * name: @jswork/next-dom2json
  * description: Dom to json for next.
  * homepage: https://github.com/afeiship/next-dom2json
- * version: 1.0.1
- * date: 2020-09-06T15:50:38.041Z
+ * version: 1.0.0
+ * date: 2020-11-20 11:23:35
  * license: MIT
  */
 
 (function () {
   var global = global || this || window || Function('return this')();
-  var nx = global.nx || require('@feizheng/next-js-core2');
+  var nx = global.nx || require('@jswork/next');
   var isNodeList = function (inNode) {
     return 'forEach' in inNode && typeof inNode.length === 'number';
   };

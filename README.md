@@ -8,12 +8,12 @@
 
 ## installation
 ```bash
-npm install -S @feizheng/next-dom2json
+npm install -S @jswork/next-dom2json
 ```
 
 ## usage
 ```js
-import '@feizheng/next-dom2json';
+import '@jswork/next-dom2json';
 
 const domElement = `
   <div class="list_item odd" data-value="v1" itemscope="" itemtype="http://schema.org/Movie">
@@ -87,23 +87,17 @@ const json = nx.dom2json(el);
 */
 ```
 
-## resources
-- https://www.w3school.com.cn/jsref/prop_node_nodetype.asp
-- https://github.com/sumn2u/dom-to-json/blob/master/lib/index.js
-
-
-
 ## license
 Code released under [the MIT license](https://github.com/afeiship/next-dom2json/blob/master/LICENSE.txt).
 
-[version-image]: https://img.shields.io/npm/v/@feizheng/next-dom2json
-[version-url]: https://npmjs.org/package/@feizheng/next-dom2json
+[version-image]: https://img.shields.io/npm/v/@jswork/next-dom2json
+[version-url]: https://npmjs.org/package/@jswork/next-dom2json
 
-[license-image]: https://img.shields.io/npm/l/@feizheng/next-dom2json
+[license-image]: https://img.shields.io/npm/l/@jswork/next-dom2json
 [license-url]: https://github.com/afeiship/next-dom2json/blob/master/LICENSE.txt
 
-[size-image]: https://img.shields.io/bundlephobia/minzip/@feizheng/next-dom2json
+[size-image]: https://img.shields.io/bundlephobia/minzip/@jswork/next-dom2json
 [size-url]: https://github.com/afeiship/next-dom2json/blob/master/dist/next-dom2json.min.js
 
-[download-image]: https://img.shields.io/npm/dm/@feizheng/next-dom2json
-[download-url]: https://www.npmjs.com/package/@feizheng/next-dom2json
+[download-image]: https://img.shields.io/npm/dm/@jswork/next-dom2json
+[download-url]: https://www.npmjs.com/package/@jswork/next-dom2json
